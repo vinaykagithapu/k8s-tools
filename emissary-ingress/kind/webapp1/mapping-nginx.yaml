@@ -1,0 +1,8 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: nginx-web-mapping
+spec:
+  hostname: "*"
+  prefix: /app1/
+  service: nginx-web-svc

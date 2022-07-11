@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-ingress
+  namespace: emissary
+  annotations:
+    # networking.gke.io/managed-certificates: www-example-com
+    ingress.gcp.kubernetes.io/pre-shared-cert: jenkin-cert
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.class: gce-internal
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: emissary-ingress
+            port:
+              number: 80
+        path: /*
+        pathType: ImplementationSpecific
