@@ -121,16 +121,23 @@ Wait for 2mins for pods up and running
 2. Need to unseal 3 times and for 3 pods vault-0, vault-1, vault-2
 ```shell
 kubectl -n vault exec -it vault-0 -- sh
-kubectl -n vault exec -it vault-1 -- sh
-kubectl -n vault exec -it vault-2 -- sh
-
 vault operator init
 vault operator unseal
-
-kubectl -n vault exec -it vault-0 -- vault status
-kubectl -n vault exec -it vault-1 -- vault status
-kubectl -n vault exec -it vault-2 -- vault status
+```
+3. Provide the Unseal Key 1
+```shell
+vault operator unseal
+```
+4. Provide the Unseal Key 2
+```shell
+vault operator unseal
+``` 
+5. Provide the Unseal Key 3
+6. Repeat the step 2,3,4 and 5 for pod vault-1, vault-2
+7. Check the vault status
+```shell
 exit
+kubectl -n vault exec -it vault-0 -- vault status
 ```
 
 ## Web UI
@@ -146,9 +153,11 @@ kubectl -n vault port-forward svc/vault-ui 9999:8200
 1. For the injector to be authorised to access vault, we need to enable K8s auth
 ```shell
 kubectl -n vault exec -it vault-0 -- sh 
-
 vault login
-# Provide the token that we have copied earlier
+```
+2. Provide the token that we have copied earlier
+3. Enable the kubernetes plugin
+```shell
 vault auth enable kubernetes
 
 vault write auth/kubernetes/config \
