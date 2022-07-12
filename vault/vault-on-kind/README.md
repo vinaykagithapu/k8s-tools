@@ -64,7 +64,6 @@ Wait for 2mins for pods up and running
 ## TLS End to End Encryption
 1. Install requirements
 ```shell
-cd tls
 sudo apt-get update && sudo apt-get install -y curl &&
 sudo curl -L https://github.com/cloudflare/cfssl/releases/download/v1.6.1/cfssl_1.6.1_linux_amd64 -o /usr/local/bin/cfssl && \
 sudo curl -L https://github.com/cloudflare/cfssl/releases/download/v1.6.1/cfssljson_1.6.1_linux_amd64 -o /usr/local/bin/cfssljson && \
@@ -74,6 +73,7 @@ sudo chmod +x /usr/local/bin/cfssljson
 
 2. Generate Self-Signed Certs 
 ```shell
+cd tls
 cfssl gencert -initca ca-csr.json | cfssljson -bare /tmp/ca
 cfssl gencert \
   -ca=/tmp/ca.pem \
