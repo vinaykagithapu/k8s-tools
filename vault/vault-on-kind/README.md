@@ -213,6 +213,6 @@ kubectl -n vault delete secret tls-server tls-ca
 rm tls/*.pem tls/*.csr
 kubectl -n vault delete -f ./manifests/consul.yaml
 kubectl delete ns vault
-
+kind delete clusters vault
 ```
 
