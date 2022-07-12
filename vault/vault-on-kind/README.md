@@ -131,12 +131,12 @@ vault operator unseal
 4. Provide the Unseal Key 2
 ```shell
 vault operator unseal
+exit
 ``` 
 5. Provide the Unseal Key 3
 6. Repeat the step 2,3,4 and 5 for pod vault-1, vault-2
 7. Check the vault status
 ```shell
-exit
 kubectl -n vault exec -it vault-0 -- vault status
 ```
 
