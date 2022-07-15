@@ -158,6 +158,7 @@ kubectl apply -f vault-ui-mapping.yaml
 # Cleanup
 ```shell
 kubectl -n vault delete -f ./manifests/vault.yaml
+kubectl delete -f vault-ui-mapping.yaml
 kubectl -n vault delete secret tls-server tls-ca
 rm tls/*.pem tls/*.csr
 kubectl -n vault delete -f ./manifests/consul.yaml
