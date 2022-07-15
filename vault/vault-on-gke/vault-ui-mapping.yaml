@@ -1,0 +1,11 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: vault-ui-mapping
+spec:
+  hostname: "*"
+  prefix: /
+  service: vault-ui.vault:8200
+  #rewrite: "/ui/"
+
+   
