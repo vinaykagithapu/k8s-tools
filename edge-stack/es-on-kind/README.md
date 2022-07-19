@@ -11,7 +11,7 @@ cd k8s-tools/edge-stack/es-on-kind
 
 2. Setup a kind cluster with 3 worker nodes
 ```shell
-kind create cluster --name vault --image kindest/node:v1.21.1 --config kind.yaml
+kind create cluster --name es-cluster --image kindest/node:v1.21.1 --config kind.yaml
 kubectl get nodes --watch
 ```
 
@@ -86,4 +86,5 @@ kubectl delete -f listener.yaml
 helm uninstall edge-stack --namespace ambassador
 kubectl delete -f aes-crds.yaml
 kubectl delete namespace ambassador
+kind delete clusters es-cluster
 ```
