@@ -1,0 +1,20 @@
+apiVersion: getambassador.io/v3alpha1
+kind: FilterPolicy
+metadata:
+  name: azure-policy
+spec:
+  rules:
+      # Requires authentication on requests from any hostname
+    - host: "*"
+      # Tells Ambassador Edge Stack to apply the Filter only on request to the quote /backend/get-quote/ endpoint
+      path: /app1/
+      # Identifies which Filter to use for the path and host above
+      filters:
+        - name: azure-ad
+
+    - host: "*"
+      # Tells Ambassador Edge Stack to apply the Filter only on request to the quote /backend/get-quote/ endpoint
+      path: /app2/
+      # Identifies which Filter to use for the path and host above
+      filters:
+        - name: azure-ad

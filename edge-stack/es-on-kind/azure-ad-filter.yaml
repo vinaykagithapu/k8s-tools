@@ -1,0 +1,15 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Filter
+metadata:
+  name: azure-ad
+spec:
+  OAuth2:
+    # Azure AD openid-configuration endpoint can be found at https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+    authorizationURL: https://login.microsoftonline.com/{{TENANT_ID}}/v2.0
+    # Client ID from step 3 above
+    clientID: CLIENT_ID
+    # Secret created in step 5 above
+    secret: CLIENT_SECRET
+    # The protectedOrigin is the scheme and Host of your Ambassador Edge Stack endpoint
+    protectedOrigins:
+    - origin: https://$NODE_IP:$NODE_PORT 
