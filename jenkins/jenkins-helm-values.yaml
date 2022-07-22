@@ -1,0 +1,32 @@
+controller:
+  installPlugins:
+    - kubernetes:3600.v144b_cd192ca_a_
+    - workflow-aggregator:581.v0c46fa_697ffd
+    - git:4.11.3
+ 
+  installLatestPlugins: true
+  additionalPlugins: 
+    - gitlab-plugin:1.5.35
+    # - workflow-job:1226.v44f718dcfe1f
+    - credentials-binding:523.vd859a_4b_122e6
+    - slack:616.v03b_1e98d13dd
+    - azure-ad:241.vb_e5cd7c35b_2e
+
+  ingress:
+    enabled: true
+    apiVersion: "extensions/v1beta1"
+    annotations: 
+      kubernetes.io/ingress.class: gce-internal
+      kubernetes.io/ingress.allow-http: "false"
+      ingress.gcp.kubernetes.io/pre-shared-cert: "jenkin-cert" # Add cert from gcp
+    paths: 
+    - backend:
+        service:
+          name: jenkins
+          port:
+            number: 8080
+      pathType: ImplementationSpecific
+    hostName: jenkins.hackwithv.com
+
+  jenkinsUrlProtocol: "https"
+
