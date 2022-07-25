@@ -34,8 +34,8 @@ kind create cluster
 ## Deploy 2 Web Apps
 1. Clone the project
 ```
-git clone https://github.com/vinaykagithapu/emissary-ingress.git
-cd emissary-ingress/kind
+git clone https://github.com/vinaykagithapu/k8s-tools.git
+cd k8s-tools/emissary-ingress/kind
 ```
 2. Deploy nginx-web app and service
 ```
