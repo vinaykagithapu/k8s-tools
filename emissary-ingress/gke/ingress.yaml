@@ -5,7 +5,7 @@ metadata:
   namespace: emissary
   annotations:
     # networking.gke.io/managed-certificates: www-example-com
-    ingress.gcp.kubernetes.io/pre-shared-cert: jenkin-cert
+    ingress.gcp.kubernetes.io/pre-shared-cert: emissary-cert
     kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: gce-internal
 spec:

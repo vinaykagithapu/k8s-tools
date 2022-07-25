@@ -189,7 +189,8 @@ service:
 
   externalIPs: []
 
-  annotations: {}
+  annotations:
+    cloud.google.com/backend-config: '{"default": "ambassador-hc-config"}'
 
   # Manually set the name of the generated Service
   nameOverride:
