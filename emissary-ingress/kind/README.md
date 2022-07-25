@@ -33,7 +33,7 @@ cd k8s-tools/emissary-ingress/kind
 ```
 2. Create kind cluster with 3 worker nodes
 ```
-kind create cluster --name es-cluster --image kindest/node:v1.23.4 --config kind.yaml
+kind create cluster --name ei-cluster --image kindest/node:v1.23.4 --config kind.yaml
 kubectl get nodes --watch
 ```
 3. Deploy nginx-web app and service
@@ -114,5 +114,5 @@ kubectl delete -f emissary-crds.yaml
 kubectl delete namespace emissary
 kubectl delete -f webapp2/deploy-httpd.yaml
 kubectl delete -f webapp1/deploy-nginx.yaml
-kind delete cluster
+kind delete cluster ei-cluster 
 ```
