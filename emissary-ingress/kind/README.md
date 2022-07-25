@@ -114,5 +114,5 @@ kubectl delete -f emissary-crds.yaml
 kubectl delete namespace emissary
 kubectl delete -f webapp2/deploy-httpd.yaml
 kubectl delete -f webapp1/deploy-nginx.yaml
-kind delete cluster ei-cluster 
+kind delete clusters ei-cluster 
 ```
