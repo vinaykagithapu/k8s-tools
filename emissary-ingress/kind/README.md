@@ -25,23 +25,22 @@ scaling and resiliency. For more on Emissary's architecture and motivation, read
 
 # Getting Started
 
-## Create Kind Cluster
-1. Create kind cluster
-```
-kind create cluster
-```
-
-## Deploy 2 Web Apps
+## Create Kind Cluster & Deploy 2 Web Apps
 1. Clone the project
 ```
 git clone https://github.com/vinaykagithapu/k8s-tools.git
 cd k8s-tools/emissary-ingress/kind
 ```
-2. Deploy nginx-web app and service
+2. Create kind cluster with 3 worker nodes
+```
+kind create cluster --name es-cluster --image kindest/node:v1.23.4 --config kind.yaml
+kubectl get nodes --watch
+```
+3. Deploy nginx-web app and service
 ```
 kubectl apply -f webapp1/deploy-nginx.yaml
 ```
-3. Deploy httpd-web app and service in httpd namespace
+4. Deploy httpd-web app and service in httpd namespace
 ```
 kubectl apply -f webapp2/deploy-httpd.yaml
 ```
