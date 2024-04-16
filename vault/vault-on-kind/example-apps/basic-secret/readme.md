@@ -50,3 +50,4 @@ Once the pod is ready, the secret is injected into the pod at the following loca
 ```
 kubectl -n example-app exec <pod-name> -- sh -c "cat /vault/secrets/helloworld"
 ```
+
