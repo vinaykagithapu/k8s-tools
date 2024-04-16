@@ -25,6 +25,7 @@ spec:
         vault.hashicorp.com/role: "basic-secret-role"
       labels:
         app: basic-secret
+        app1: basic-secret1
     spec:
       serviceAccountName: basic-secret
       containers:
